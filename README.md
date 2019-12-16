@@ -28,3 +28,10 @@ kubectl get service kibana-quickstart-kb-http -o yaml
 ```
 kubectl get statefulset elastic-operator --namespace elastic-system -o yaml
 ```
+
+
+1. delete
+```
+kubectl delete -f https://github.com/dharada/elastic-cloud-k8s/blob/master/quickstart-eck-with-lb.yaml
+kubectl delete -f https://download.elastic.co/downloads/eck/1.0.0-beta1/all-in-one.yaml
+```
