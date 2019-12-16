@@ -23,3 +23,8 @@ kubectl apply -f https://github.com/dharada/elastic-cloud-k8s/blob/master/quicks
 ```
 kubectl get service kibana-quickstart-kb-http -o yaml
 ```
+
+1. display statefulset/elastic-operato detail as yaml
+```
+kubectl get statefulset elastic-operator --namespace elastic-system -o yaml
+```
