@@ -38,8 +38,8 @@ spec:
             value: -Xms2g -Xmx2g
           resources:
             requests:
-              memory: 4Gi
-              cpu: 0.5
+              memory: 2Gi
+              cpu: 0.1
             limits:
               memory: 4Gi
               cpu: 1
