@@ -39,6 +39,6 @@ kubectl get statefulset elastic-operator --namespace elastic-system -o yaml
 
 ##### 7. delete
 ```
-kubectl delete -f https://github.com/dharada/elastic-cloud-k8s/blob/master/quickstart-eck-with-lb.yaml
+kubectl delete -f quickstart-eck-with-lb.yaml
 kubectl delete -f https://download.elastic.co/downloads/eck/#####0.0-beta1/all-in-one.yaml
 ```
