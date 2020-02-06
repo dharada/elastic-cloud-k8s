@@ -4,6 +4,10 @@ metadata:
   name: quickstart
 spec:
   version: 7.5.2
+  http:
+    service:
+      spec:
+        type: LoadBalancer  
   nodeSets:
   - name: default
     count: 3
