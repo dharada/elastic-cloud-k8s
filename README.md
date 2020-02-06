@@ -23,7 +23,7 @@ kubectl apply -f https://download.elastic.co/downloads/eck/1.0.0/all-in-one.yaml
 
 ##### 4. apply ES, Kibana(with LB), Apm 
 ```
-kubectl apply -f https://github.com/dharada/elastic-cloud-k8s/blob/master/quickstart-eck-with-lb.yaml
+kubectl apply -f quickstart-eck-with-lb.yaml
 ```
 
 ##### 5. display svc detail as yaml
