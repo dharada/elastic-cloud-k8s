@@ -3,7 +3,7 @@ kind: Elasticsearch
 metadata:
   name: quickstart
 spec:
-  version: 7.5.2
+  version: 7.6.1
   http:
     service:
       spec:
@@ -35,13 +35,13 @@ spec:
         - name: elasticsearch
           env:
           - name: ES_JAVA_OPTS
-            value: -Xms2g -Xmx2g
+            value: -Xms512m -Xmx512m
           resources:
             requests:
-              memory: 2Gi
+              memory: 512Mi
               cpu: 0.1
             limits:
-              memory: 4Gi
+              memory: 2Gi
               cpu: 1
 ---
 apiVersion: kibana.k8s.elastic.co/v1
@@ -49,7 +49,7 @@ kind: Kibana
 metadata:
   name: kibana-quickstart
 spec:
-  version: 7.5.2
+  version: 7.6.1
   http:
     service:
       spec:
@@ -64,7 +64,7 @@ metadata:
   name: apm-server-quickstart
   namespace: default
 spec:
-  version: 7.5.2
+  version: 7.6.1
   count: 1
   elasticsearchRef:
     name: quickstart
