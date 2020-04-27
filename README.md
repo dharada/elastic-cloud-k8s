@@ -56,5 +56,9 @@ curl -u "elastic:$PASSWORD" -k "https://<EXTERNAL-IP>:9200"
 ##### 9. delete(clean up)
 ```
 kubectl delete -f quickstart-eck-with-lb.yaml
+```
+
+```
 kubectl delete -f https://download.elastic.co/downloads/eck/1.0.1/all-in-one.yaml
+```
 ```
