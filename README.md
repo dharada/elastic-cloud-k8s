@@ -47,6 +47,9 @@ kubectl get service quickstart-es-http
 
 ```
 PASSWORD=$(kubectl get secret quickstart-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode)
+```
+
+```
 curl -u "elastic:$PASSWORD" -k "https://<EXTERNAL-IP>:9200"
 ```
 
