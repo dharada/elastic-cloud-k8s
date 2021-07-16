@@ -18,8 +18,9 @@ cluster-admin-binding \
 
 ##### 3. apply Custom Resource 
 ```
-kubectl apply -f https://download.elastic.co/downloads/eck/1.0.1/all-in-one.yaml
+kubectl apply -f https://download.elastic.co/downloads/eck/1.6.0/all-in-one.yaml
 ```
+* please check newest custom resouce definition on official ECK docs. https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-deploy-eck.html
 
 ##### 4. apply ES, Kibana(with LB), Apm 
 ```
@@ -59,6 +60,6 @@ kubectl delete -f quickstart-eck-with-lb.yaml
 ```
 
 ```
-kubectl delete -f https://download.elastic.co/downloads/eck/1.0.1/all-in-one.yaml
+kubectl delete -f https://download.elastic.co/downloads/eck/1.6.0/all-in-one.yaml
 ```
 ```
