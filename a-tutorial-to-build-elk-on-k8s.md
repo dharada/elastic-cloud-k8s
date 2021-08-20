@@ -51,7 +51,7 @@ spec:
 
 
 
-### To expose kibana deploymnent
+### To expose kibana deployment
 
 ```commandline
 kubectl expose deployment kibana-manual --type LoadBalancer --port 5601 --dry-run=client
