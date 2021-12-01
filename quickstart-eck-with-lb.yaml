@@ -3,7 +3,7 @@ kind: Elasticsearch
 metadata:
   name: quickstart
 spec:
-  version: 7.6.1
+  version: 7.15.2
   http:
     service:
       spec:
@@ -24,7 +24,7 @@ spec:
         - ReadWriteOnce
         resources:
           requests:
-            storage: 5Gi
+            storage: 10Gi
         storageClassName: standard
     podTemplate:
       metadata:
@@ -49,7 +49,7 @@ kind: Kibana
 metadata:
   name: kibana-quickstart
 spec:
-  version: 7.6.1
+  version: 7.15.2
   http:
     service:
       spec:
@@ -64,7 +64,7 @@ metadata:
   name: apm-server-quickstart
   namespace: default
 spec:
-  version: 7.6.1
+  version: 7.15.2
   count: 1
   elasticsearchRef:
     name: quickstart

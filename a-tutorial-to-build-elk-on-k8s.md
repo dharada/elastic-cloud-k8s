@@ -58,3 +58,17 @@ kubectl expose deployment kibana-manual --type LoadBalancer --port 5601 --dry-ru
 kubectl expose deployment kibana-manual --type LoadBalancer --port 5601
 ```
 
+### configMap for Logstash
+
+```commandline
+kubectl create configmap logstash-manual-pipeline --from-file ./logstash-a-pipeline.conf
+
+(When you want to delete)
+kubectl delete configmap logstash-manual-pipeline
+```
+
+### To expose logstash input port from beats
+```commandline
+kubectl expose deployment logstash-manual --type LoadBalancer --port 5044 --dry-run=client
+kubectl expose deployment logstash-manual --type LoadBalancer --port 5044
+```
