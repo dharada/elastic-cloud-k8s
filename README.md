@@ -18,7 +18,7 @@ gcloud container clusters get-credentials $CLUSTER_NAMsE --zone $ZONE_NAME --pro
 ```
 
 
-##### 3. set Role-based access control
+##### 3. Set Role-based access control
 
 ```commandline
 kubectl create clusterrolebinding \
@@ -27,29 +27,29 @@ cluster-admin-binding \
 --user=$(gcloud auth list --filter=status:ACTIVE --format="value(account)")
 ```
 
-##### 4. create Custom Resource Definitions and apply operator
+##### 4. Create Custom Resource Definitions and apply operator
 ```commandline
 kubectl create -f https://download.elastic.co/downloads/eck/1.9.0/crds.yaml
 kubectl apply -f https://download.elastic.co/downloads/eck/1.9.0/operator.yaml
 ```
 * please check newest custom resouce definition on official ECK docs. https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-deploy-eck.html
 
-##### 5. apply ES(with LB), Kibana(with LB), Apm 
+##### 5. Apply ES(with LB), Kibana(with LB), Apm 
 ```commandline
 kubectl apply -f quickstart-eck-with-lb.yaml
 ```
 
-##### 6. display svc detail as yaml
+##### 6. Display svc detail as yaml
 ```commandline
 kubectl get service kibana-quickstart-kb-http -o yaml
 ```
 
-##### 7. display statefulset/elastic-operato detail as yaml
+##### 7. Display statefulset/elastic-operato detail as yaml
 ```commandline
 kubectl get statefulset elastic-operator --namespace elastic-system -o yaml
 ```
 
-##### 8. check ES endpoint 
+##### 8. Check ES endpoint 
 
 ```commandline
 PASSWORD=$(kubectl get secret quickstart-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode)
@@ -57,7 +57,7 @@ ES_EXTERNAL_IP=$(kubectl get svc quickstart-es-http -o=jsonpath='{.status.loadBa
 curl -u "elastic:$PASSWORD" -k "https://$ES_EXTERNAL_IP:9200"
 ```
 
-##### 9. check Kibana endpoint 
+##### 9. Check Kibana endpoint 
 
 ```commandline
 PASSWORD=$(kubectl get secret quickstart-es-elastic-user -o=jsonpath='{.data.elastic}' -n default | base64 --decode)
@@ -65,7 +65,7 @@ KI_EXTERNAL_IP=$(kubectl get svc kibana-quickstart-kb-http -o=jsonpath='{.status
 curl -u "elastic:${PASSWORD}" -k "https://${KI_EXTERNAL_IP}:5601/api/status" | jq .
 ```
 
-##### 10. delete(clean up)
+##### 10. Delete(clean up)
 ```commandline
 kubectl delete -f quickstart-eck-with-lb.yaml
 ```
