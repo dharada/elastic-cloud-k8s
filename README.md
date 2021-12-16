@@ -71,7 +71,7 @@ kubectl delete -f quickstart-eck-with-lb.yaml
 ```
 
 ```commandline
-kubectl delete -f https://download.elastic.co/downloads/eck/1.8.0/operator.yaml
-kubectl delete -f https://download.elastic.co/downloads/eck/1.8.0/crds.yaml
+kubectl delete -f https://download.elastic.co/downloads/eck/1.9.0/operator.yaml
+kubectl delete -f https://download.elastic.co/downloads/eck/1.9.0/crds.yaml
 ```
 
