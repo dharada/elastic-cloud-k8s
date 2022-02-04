@@ -3,7 +3,7 @@ kind: Elasticsearch
 metadata:
   name: quickstart
 spec:
-  version: 7.15.2
+  version: 7.16.3
   http:
     service:
       spec:
@@ -12,9 +12,8 @@ spec:
   - name: default
     count: 3
     config:
-      node.master: true
-      node.data: true
-      node.ingest: true
+      node.roles: [ "master", "data", "ingest" ]
+      xpack.ml.enabled: true
       node.store.allow_mmap: false
     volumeClaimTemplates:
     - metadata:
@@ -31,6 +30,11 @@ spec:
         labels:
           foo: bar
       spec:
+        initContainers:
+          - name: sysctl
+            securityContext:
+              privileged: true
+            command: [ 'sh', '-c', 'sysctl -w vm.max_map_count=262144' ]
         containers:
         - name: elasticsearch
           env:
@@ -38,18 +42,22 @@ spec:
             value: -Xms512m -Xmx512m
           resources:
             requests:
-              memory: 512Mi
-              cpu: 0.1
+              memory: 1.5Gi
+              cpu: 0.2
             limits:
               memory: 2Gi
               cpu: 1
+#          readinessProbe:
+#            httpGet:
+#              scheme: HTTPS
+#              port: 9200
 ---
 apiVersion: kibana.k8s.elastic.co/v1
 kind: Kibana
 metadata:
   name: kibana-quickstart
 spec:
-  version: 7.15.2
+  version: 7.16.3
   http:
     service:
       spec:
@@ -57,6 +65,20 @@ spec:
   count: 1
   elasticsearchRef:
     name: quickstart
+#  config:
+#    server:
+#      rewriteBasePath: true
+#      basePath: "/kibana"
+#      publicBaseUrl: "https://kb-quickstart/kibana"
+#  podTemplate:
+#    spec:
+#      containers:
+#        - name: kibana
+#          readinessProbe:
+#            httpGet:
+#              scheme: HTTPS
+#              path: "/kibana/login"
+#              port: 5601
 ---
 apiVersion: apm.k8s.elastic.co/v1
 kind: ApmServer
@@ -64,7 +86,7 @@ metadata:
   name: apm-server-quickstart
   namespace: default
 spec:
-  version: 7.15.2
+  version: 7.16.3
   count: 1
   elasticsearchRef:
     name: quickstart
