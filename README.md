@@ -29,8 +29,8 @@ cluster-admin-binding \
 
 ##### 4. Create Custom Resource Definitions and apply operator
 ```commandline
-kubectl create -f https://download.elastic.co/downloads/eck/1.9.0/crds.yaml
-kubectl apply -f https://download.elastic.co/downloads/eck/1.9.0/operator.yaml
+kubectl create -f https://download.elastic.co/downloads/eck/1.9.1/crds.yaml
+kubectl apply -f https://download.elastic.co/downloads/eck/1.9.1/operator.yaml
 ```
 * please check newest custom resouce definition on official ECK docs. https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-deploy-eck.html
 
@@ -71,7 +71,7 @@ kubectl delete -f quickstart-eck-with-lb.yaml
 ```
 
 ```commandline
-kubectl delete -f https://download.elastic.co/downloads/eck/1.9.0/operator.yaml
-kubectl delete -f https://download.elastic.co/downloads/eck/1.9.0/crds.yaml
+kubectl delete -f https://download.elastic.co/downloads/eck/1.9.1/operator.yaml
+kubectl delete -f https://download.elastic.co/downloads/eck/1.9.1/crds.yaml
 ```
 
