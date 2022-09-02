@@ -27,7 +27,7 @@ cluster-admin-binding \
 --user=$(gcloud auth list --filter=status:ACTIVE --format="value(account)")
 
 
-kubectl apply -f https://download.elastic.co/downloads/eck/1.0.1/all-in-one.yaml
+kubectl apply -f https://download.elastic.co/downloads/eck/2.4.0/operator.yaml
 
 kubectl apply -f ./quickstart-eck-with-lb.yaml
 
